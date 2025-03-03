@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qzx.Mapper.orderMapper">
+    <resultMap id="addressesOrderMap" type="com.qzx.pojo.addresses">
+        <result column="a_RegionName" property="name"/>
+        <collection property="orderList" ofType="com.qzx.pojo.order">
+            <result column="orderId" property="orderId"/>
+            <result column="customerId" property="customerId"/>
+            <result column="courierId" property="courierId"/>
+            <result column="pickupAddress" property="pickupAddress"/>
+            <result column="addressId" property="addressId"/>
+            <result column="deliveryAddress" property="deliveryAddress"/>
+            <result column="status" property="status"/>
+            <result column="totalAmount" property="totalAmount"/>
+            <result column="description" property="description"/>
+            <result column="createdTime" property="createdTime"/>
+            <result column="updatedTime" property="updatedTime"/>
+        </collection>
+    </resultMap>
+    <!-- 定义SQL语句 -->
+    <select id="get" resultMap="addressesOrderMap">
+        select a.RegionName a_RegionName, a.addressId a_addressId,o.* from addresses  a join orders o on a.addressId = o.addressId where a.addressId = #{addressId}
+    </select>
+</mapper>

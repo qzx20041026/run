@@ -19,6 +19,6 @@ public class order {
     private String status;  // 订单状态
     private Double totalAmount;  // 订单总金额
     private String description;  // 订单描述
-    private LocalDateTime createdAt;  // 订单创建时间
-    private LocalDateTime updatedAt;  // 订单更新时间
+    private LocalDateTime createdTime;  // 订单创建时间
+    private LocalDateTime updatedTime;  // 订单更新时间
 }

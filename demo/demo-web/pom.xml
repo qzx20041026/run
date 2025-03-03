@@ -58,6 +58,11 @@
         </dependency>
         <dependency>
             <groupId>com.qzx</groupId>
+            <artifactId>demo-pojo</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.qzx</groupId>
             <artifactId>demo-fu</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
