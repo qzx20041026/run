@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: demo-web
+  datasource:
+    url: jdbc:mysql://localhost:3306/run
+    username: root
+    password: 123456
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #    驼峰命名开关
+    map-underscore-to-camel-case: true
+#更改JdbcTransactionManager日志级别
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
