@@ -7,6 +7,6 @@ import java.util.List;
 
 @Mapper
 public interface addressMapper {
-    @Select("select * from addresses")
+    @Select("select addressId from addresses")
     List<Integer> list();
 }

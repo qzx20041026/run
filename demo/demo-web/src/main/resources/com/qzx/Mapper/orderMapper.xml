@@ -22,6 +22,6 @@
     </resultMap>
     <!-- 定义SQL语句 -->
     <select id="get" resultMap="addressesOrderMap">
-        select a.RegionName a_RegionName, a.addressId a_addressId,o.* from addresses  a join orders o on a.addressId = o.addressId where a.addressId = #{addressId}
+        select a.RegionName a_RegionName, a.addressId a_addressId,o.* from addresses  a join orders o on a.addressId = o.addressId where a.addressId = #{addressId} and o.status = 'pending'
     </select>
 </mapper>

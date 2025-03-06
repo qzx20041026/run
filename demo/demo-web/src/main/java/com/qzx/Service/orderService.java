@@ -9,4 +9,6 @@ public interface orderService {
     List<order> list();
 
     addresses get(Integer addressesId);
+
+    void up(order o);
 }

@@ -5,9 +5,7 @@ import com.qzx.pojo.Result;
 import com.qzx.pojo.addresses;
 import com.qzx.pojo.order;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,8 +20,14 @@ public class orderContrller {
         return Result.success(list);
     }
     @GetMapping
-    private Result get(Integer addressesId) {
-        addresses addresses= orderService.get(addressesId);
+    private Result get(Integer id) {
+        addresses addresses= orderService.get(id);
         return Result.success(addresses);
+    }
+    @PutMapping("/up")
+    private Result up(@RequestBody order o) {
+        System.out.println(o.toString());
+        orderService.up(o);
+        return Result.success();
     }
 }

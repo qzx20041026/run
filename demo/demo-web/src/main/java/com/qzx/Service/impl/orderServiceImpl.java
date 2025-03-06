@@ -7,6 +7,7 @@ import com.qzx.pojo.order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -24,5 +25,11 @@ public class orderServiceImpl implements orderService {
         addresses addresses = orderMapper.get(addressesId);
         System.out.println(addresses);
         return addresses;
+    }
+
+    @Override
+    public void up(order o) {
+        o.setUpdatedTime(LocalDateTime.now());
+        orderMapper.up(o);
     }
 }
