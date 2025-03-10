@@ -1,6 +1,10 @@
 spring:
   application:
     name: demo-web
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
   datasource:
     url: jdbc:mysql://localhost:3306/run
     username: root
@@ -14,3 +18,8 @@ mybatis:
 logging:
   level:
     org.springframework.jdbc.support.JdbcTransactionManager: debug
+aliyun:
+  oss:
+    endpoint: https://oss-cn-beijing.aliyuncs.com
+    bucketName: qzx-java-web1
+    region: cn-beijing
