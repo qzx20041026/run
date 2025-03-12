@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzx.Mapper.userMapper">
+
+<!--    @Insert("insert into users(userName,image,password,phone,dormitoryBuilding,dormitoryRoom,createdTime) values
+(#{userName},#{image},#{password},#{phone},#{dormitoryBuilding},#{dormitoryRoom},#{createdTime})")-->
+    <update id="update">
+        update users
+        <set>
+            <if test="userName != null"> userName = #{userName},</if>
+            <if test="image != null"> image = #{image},</if>
+            <if test="password != null"> password = #{password},</if>
+            <if test="phone != null"> phone = #{phone},</if>
+            <if test="role != null"> role = #{role},</if>
+            <if test="dormitoryBuilding != null"> dormitoryBuilding = #{dormitoryBuilding},</if>
+            <if test="dormitoryRoom != null"> dormitoryRoom = #{dormitoryRoom},</if>
+            <if test="createdTime != null"> createdTime = #{createdTime},</if>
+            <if test="updatedTime != null"> updatedTime = #{updatedTime},</if>
+            <if test="openid != null"> openid = #{openid},</if>
+        </set>
+        where userId = #{userId}
+    </update>
+</mapper>

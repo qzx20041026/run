@@ -1,6 +1,7 @@
 package com.qzx.Service;
 
 import com.qzx.pojo.User;
+import com.qzx.pojo.vxUser;
 
 public interface userService {
     User login(User user);
@@ -10,4 +11,6 @@ public interface userService {
     int sign(User user);
 
     int update(User user);
+
+    User loginwx(vxUser code);
 }

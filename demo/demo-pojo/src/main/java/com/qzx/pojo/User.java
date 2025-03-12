@@ -66,6 +66,7 @@ public class User {
      */
     private String token;
     /**
-     * 默认构造函数
+     * 用户微信openid
      */
+    private String openid;
 }

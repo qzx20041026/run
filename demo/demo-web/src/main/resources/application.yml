@@ -23,3 +23,7 @@ aliyun:
     endpoint: https://oss-cn-beijing.aliyuncs.com
     bucketName: qzx-java-web1
     region: cn-beijing
+wx:
+  xcx:
+    appid: wx27cb9a25c2679444
+    appsecret: 345d2e5784d5ef9fb71c159193605921

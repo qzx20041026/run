@@ -13,8 +13,11 @@ public interface userMapper {
 @Select("select * from users where userName=#{userName}")
     User byUserName(String userName);
 
-@Insert("insert into users(userName,image,password,phone,dormitoryBuilding,dormitoryRoom,createdTime) values(#{userName},#{image},#{password},#{phone},#{dormitoryBuilding},#{dormitoryRoom},#{createdTime})")
+@Insert("insert into users(userName,image,password,phone,dormitoryBuilding,dormitoryRoom,createdTime,openid) values(#{userName},#{image},#{password},#{phone},#{dormitoryBuilding},#{dormitoryRoom},#{createdTime},#{openid})")
     int sign(User user);
-@Update("update users set phone=#{phone},dormitoryBuilding = #{dormitoryBuilding} , dormitoryRoom=#{dormitoryRoom},password=#{password},users.updatedTime=#{updatedTime} , image=#{image} where userId =#{userId}")
     int update(User user);
+@Select("select * from users where openid=#{openid}")
+    User byOpenid(String openid);
 }
+
+
