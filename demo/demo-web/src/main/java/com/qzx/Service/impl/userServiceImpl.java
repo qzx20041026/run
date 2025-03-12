@@ -7,6 +7,7 @@ import com.qzx.pojo.vxRsult;
 import com.qzx.pojo.vxUser;
 import com.qzx.pojo.wxDto;
 import com.qzx.utils.HttpCli;
+import com.qzx.utils.JwtUtils;
 import com.qzx.utils.WeChatDecryptor;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -36,6 +37,11 @@ public class userServiceImpl implements userService {
     @Override
     public User login(User user) {
         User login = userMapper.login(user);
+        Map<String,Object>map =new HashMap<>();
+        map.put("userId",login.getUserId());
+        map.put("userName",login.getUserName());
+        String s = JwtUtils.generateToken(map);
+        login.setToken(s);
         return login;
     }
 
@@ -84,6 +90,10 @@ public class userServiceImpl implements userService {
             user.setOpenid(vxRsult.getOpenid());
             userMapper.update(user);
         }
+        Map<String,Object>map1 =new HashMap<>();
+        map1.put("userId",user.getUserId());
+        map1.put("userName",user.getUserName());
+        user.setToken(JwtUtils.generateToken(map1));
         return user;
     }
 
